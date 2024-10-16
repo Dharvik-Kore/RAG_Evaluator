@@ -39,7 +39,6 @@ class RagasEvaluator(BaseEvaluator):
             )
 
             azure_embeddings = AzureOpenAIEmbeddings(
-                api_key = config["api_key"],
                 openai_api_version= config["openai_api_version"],
                 azure_endpoint= config["base_url"],
                 azure_deployment= config["embedding_deployment"],
