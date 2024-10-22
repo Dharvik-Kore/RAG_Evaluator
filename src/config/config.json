@@ -10,6 +10,7 @@
     "embedding_name": "<EMBEDDING NAME>",
     "MongoDB": {
         "url": "<MONGO URL>",
-        "dbName": "<DB NAME>"
+        "dbName": "<DB NAME>",
+        "collectionName": "<COLLECTION NAME>"
     }
 }
