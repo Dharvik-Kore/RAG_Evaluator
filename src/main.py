@@ -39,7 +39,7 @@ def load_data_and_call_api(excel_file, sheet_name, config):
     # Create a new DataFrame with API results
     results_df = pd.DataFrame(api_results)
     current_file_dir = os.path.dirname(os.path.abspath(__file__))
-    relative_output_dir = os.path.join(current_file_dir, ".", "outputs", "sa_api_outputs")
+    relative_output_dir = os.path.join(current_file_dir, "outputs", "sa_api_outputs")
     os.makedirs(relative_output_dir, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -138,7 +138,7 @@ def main():
 
         # Define the relative path directory where you want to save the output file
         current_file_dir = os.path.dirname(os.path.abspath(__file__))
-        relative_output_dir = os.path.join(current_file_dir, ".", "outputs")
+        relative_output_dir = os.path.join(current_file_dir, "outputs")
         os.makedirs(relative_output_dir, exist_ok=True)
 
         timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -164,7 +164,7 @@ def main():
                                                        llm_model=llm_model)
                 results[0].to_excel(writer, sheet_name=sheet_name, index=False)
                 if(args.save_db):
-                    dbService(results[0], output_filename, results[1])
+                    dbService(results[0], results[1], timestamp)
 
                 print(f"Results for sheet '{sheet_name}' saved to '{output_filename}'.")
 
